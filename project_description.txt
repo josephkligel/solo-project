@@ -1,0 +1,27 @@
+Programmapedia
+
+Description: A wikipedia-inspired website that shows different programming language concepts and code.
+	It is meant as a basic encyclopedia for researching programming statements and applications.
+	A user, for example, can go to the Programmapedia website and lookup how to print a string to the terminal using Java.
+
+Stack: Java Spring (can do MERN if required)
+
+Feature List: 
+	Minimum Viable Product:
+	> Register and login users
+	> Once a user logs in or registers, he/she are sent to home pages where there is
+		table of contents for various programming languages, e.g. Java, Python, etc., and a table
+		listing all the user's article entries.
+	> The user can view entries from a programming language, create new entries, edit their own entries,
+		delete their own entries, and read/view entries.
+	> Website uses bootstrap and CSS for style
+	> Website is on GitHub and contains a gitignore file
+	> Data is validated when entered and uploaded to database
+	
+	Product Backlog:
+	> Search feature to find programming concepts
+	> Graphics and aesthetic features to make the site more visually appealing
+
+
+Github Link: https://github.com/josephkligel/solo-project
+
