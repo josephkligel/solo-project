@@ -22,8 +22,8 @@
 
 	<div class="container pt-3">
 	
-		<div class="mb-4">
-			<h1>Welcome ${user.userName }!</h1>
+		<div class="mb-4 d-flex justify-content-between">
+			<h1>Welcome, ${user.userName }!</h1>
 			<div class="align-self-center">
 				<a href="/language/add">Add a Language</a>
 				<a href="/add">Add an Entry</a>
@@ -33,41 +33,56 @@
 		</div>
 		
 		
-		<div>
+		<div class="row">
 		
-			<div>
+			<div class="col-6">
 				<h3>Table of Contents:</h3>
-				
+				<div class="card">
+					<div class="card-body">
+						<ul class="list-unstyled">
+							<c:forEach var="language" items="${languages }">
+								<li>
+									<a href="/language/${language.id }">
+										${language.programmingLanguage }
+									</a>
+								</li>
+							</c:forEach>
+						</ul>
+						
+					</div>
+				</div>
 			</div>
 		
 			
-			<table class="table table-striped table-bordered">
-			
+			<div class="col-6">
 				<h3>Your Entries:</h3>
 				
-				<thead style="background-color: lightgrey;">
-					<th>Entry Title</th>
-					<th>Language</th>
-					<th>Actions</th>
-				</thead>
-				<tbody>
-					<c:forEach var="entry" items="${entries }">
-						<tr>
-							<td>
-								<a href="/views/${entry.id }">
-									${entry.title }
-								</a>
-							</td>
-							<td>${entry.language }</td>
-							<td>
-								<a href="/edit/${entry.id }">
-									Edit
-								</a>
-							</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+				<table class="table table-striped table-bordered">
+					
+					<thead style="background-color: lightgrey;">
+						<th>Entry Title</th>
+						<th>Language</th>
+						<th>Actions</th>
+					</thead>
+					<tbody>
+						<c:forEach var="entry" items="${entries }">
+							<tr>
+								<td>
+									<a href="/views/${entry.id }">
+										${entry.title }
+									</a>
+								</td>
+								<td>${entry.language.programmingLanguage }</td>
+								<td>
+									<a href="/edit/${entry.id }">
+										Edit
+									</a>
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
 			
 		
 		</div>

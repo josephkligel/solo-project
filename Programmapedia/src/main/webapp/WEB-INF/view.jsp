@@ -11,43 +11,60 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Programmapedia</title>
+<!-- for Bootstrap CSS -->
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<!-- YOUR own local CSS -->
+<link rel="stylesheet" href="/css/main.css"/>
+<!-- For any Bootstrap that uses JS -->
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-	<div>
-		<h1>Programmapedia</h1>
-		<div>
-			<a href="/home">Home</a>
-			<a href="/logout">Logout</a>
-		</div>
-	</div>
-	
-	<div>
-		<p>${entry.title }</p>
-		<div>
-			<p>Language: ${entry.language }</p>
-			<p>Created By:
-				${ user.id == entry.user.id ? "You" : entry.user.userName }
-			 </p>
-			<p>Description: ${entry.description }</p>
-			<p>
-				Example(s):
-				<br>
-				${entry.examples }
-			</p>
+	<div class="container pt-3">
+		<div class="mb-4 d-flex justify-content-between">
+			<h1>Programmapedia</h1>
+			<div class="align-self-center">
+				<a href="javascript:history.back()">Go Back</a>
+				<a href="/home">Home</a>
+				<a href="/logout">Logout</a>
+			</div>
 		</div>
 		
-	</div>
-	
-	<div>
-		<a class="btn" href="/edit/${entry.id }">
-			Edit
-		</a>
+		<div class="mb-3">
+			<p>${entry.title }</p>
+			<div class="card w-50">
+			
+				<div class="card-body">
+					<p>Language: ${entry.language.programmingLanguage }</p>
+					<p>Created By:
+						${ user.id == entry.user.id ? "You" : entry.user.userName }
+					 </p>
+					<p>Description: ${entry.description }</p>
+					<p>
+						Example(s):
+						<div class="ms-5">
+							${entry.examples }
+						</div>
+					</p>
+				</div>
+			</div>
+			
+		</div>
 		
-		<form action="/entry/${entry.id }/delete" method="post">
-			<input type="hidden" name="_method" value="delete" />
-			<button>Delete</button>
-		</form>
+		<c:if test="${user.id == entry.user.id }">
+			<div class="w-50 d-flex justify-content-end">
+				<a class="btn btn-outline-dark me-3" href="/edit/${entry.id }">
+					Edit
+				</a>
+				
+				<form action="/entry/${entry.id }/delete" method="post">
+					<input type="hidden" name="_method" value="delete" />
+					<button class="btn btn-danger">Delete</button>
+				</form>
+			</div>
+		</c:if>
+		
+	
 	</div>
 
 </body>

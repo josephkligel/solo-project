@@ -30,10 +30,6 @@ public class Entry {
 	@Size(min=2, max=200)
 	private String title;
 	
-	@NotEmpty(message="Programming Language is required!")
-	@Size(min=3, max=50)
-	private String language;
-	
 	@NotEmpty(message="Description is required!")
 	@Size(min=3, max=200)
 	private String description;
@@ -53,6 +49,10 @@ public class Entry {
 	@JoinColumn(name="user_id")
 	private User user;
 	
+	@ManyToOne(optional=false, fetch=FetchType.LAZY)
+	@JoinColumn(name="language_id")
+	private Language language;
+	
 	public Entry() {
 		
 	}
@@ -71,14 +71,6 @@ public class Entry {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getLanguage() {
-		return language;
-	}
-
-	public void setLanguage(String language) {
-		this.language = language;
 	}
 
 	public String getDescription() {
@@ -130,6 +122,14 @@ public class Entry {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public Language getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(Language language) {
+		this.language = language;
 	}
 	
 	

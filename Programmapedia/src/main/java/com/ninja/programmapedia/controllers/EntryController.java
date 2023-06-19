@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.ninja.programmapedia.models.Entry;
-import com.ninja.programmapedia.models.User;
 import com.ninja.programmapedia.services.EntryService;
-import com.ninja.programmapedia.services.UserService;
+import com.ninja.programmapedia.services.LanguageService;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -26,25 +25,14 @@ public class EntryController {
 	private EntryService entryService;
 	
 	@Autowired
-	private UserService userService;
-	
-	// User homepage
-	
-	@GetMapping("/home")
-	public String home(HttpSession session, Model model) {
-		model.addAttribute("user", session.getAttribute("user"));
-		User user = (User) session.getAttribute("user");
-		model.addAttribute("entries", entryService.findByUser((User) model.getAttribute("user")));
-		return "home.jsp";
-	}
-	
-	
+	private LanguageService languageService;
 	
 	// Add and create entry
 	
 	@GetMapping("/add")
 	public String add(@ModelAttribute("entry") Entry entry, Model model, HttpSession session) {
 		model.addAttribute("user", session.getAttribute("user"));
+		model.addAttribute("languages", languageService.allLanguages());
 		return "add.jsp";
 	}
 	
@@ -62,6 +50,7 @@ public class EntryController {
 	@GetMapping("/edit/{entryId}")
 	public String edit(@PathVariable("entryId") Long entryId, Model model) {
 		model.addAttribute("entry", entryService.findEntry(entryId));
+		model.addAttribute("languages", languageService.allLanguages());
 		return "edit.jsp";
 	}
 	
@@ -81,15 +70,6 @@ public class EntryController {
 		model.addAttribute("user", session.getAttribute("user"));
 		model.addAttribute("entry", entryService.findEntry(entryId));
 		return "view.jsp";
-	}
-	
-	// Show entries by language
-	
-	@GetMapping("/entry/language/{language}")
-	public String language(@PathVariable("language") String language, Model model) {
-		model.addAttribute("language", language);
-		model.addAttribute("entries", entryService.findByLanguage(language));
-		return "language.jsp";
 	}
 	
 	// Delete an entry

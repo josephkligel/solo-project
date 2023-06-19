@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ninja.programmapedia.models.LoginUser;
 import com.ninja.programmapedia.models.User;
+import com.ninja.programmapedia.services.EntryService;
+import com.ninja.programmapedia.services.LanguageService;
 import com.ninja.programmapedia.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -19,6 +21,10 @@ import jakarta.validation.Valid;
 public class UserController {
 	@Autowired
 	public UserService userService;
+	@Autowired
+	public LanguageService languageService;
+	@Autowired
+	public EntryService entryService;
 
 	@GetMapping("/")
 	public String index(Model model) {
@@ -73,4 +79,18 @@ public class UserController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
+	// User homepage
+	
+	@GetMapping("/home")
+	public String home(HttpSession session, Model model) {
+		// Get username to display on page
+		model.addAttribute("user", session.getAttribute("user"));
+		// Get all programming languages and display them
+		model.addAttribute("languages", languageService.allLanguages());
+		// Create user and get entries by logged-in user
+		model.addAttribute("entries", entryService.findByUser((User) model.getAttribute("user")));
+		return "home.jsp";
+	}
+	
 }

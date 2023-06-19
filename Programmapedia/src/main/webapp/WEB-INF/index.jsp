@@ -20,7 +20,7 @@
 </head>
 <body>
 
-	<div class="px-3 pt-3">
+	<div class="container pt-3">
 	
 		<div>
 			<h1>Welcome!</h1>

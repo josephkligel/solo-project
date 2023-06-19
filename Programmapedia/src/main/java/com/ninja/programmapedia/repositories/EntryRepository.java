@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.ninja.programmapedia.models.Entry;
+import com.ninja.programmapedia.models.Language;
 import com.ninja.programmapedia.models.User;
 
 @Repository
@@ -14,6 +15,6 @@ public interface EntryRepository extends CrudRepository<Entry, Long> {
 	
 	List<Entry> findByUser(User user);
 	
-	List<Entry> findByLanguage(String Language);
+	List<Entry> findByLanguage(Language language);
 	
 }

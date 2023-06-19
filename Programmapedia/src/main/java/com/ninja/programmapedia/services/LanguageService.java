@@ -1,6 +1,7 @@
 package com.ninja.programmapedia.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,14 @@ public class LanguageService {
 	
 	public Language createLanguage(Language language) {
 		return languageRepo.save(language);
+	}
+	
+	public Language findLanguage(Long languageId) {
+		Optional<Language> optionalLanguage = languageRepo.findById(languageId);
+		if(optionalLanguage.isPresent()) {
+			return optionalLanguage.get();
+		} else {
+			return null;
+		}
 	}
 }
