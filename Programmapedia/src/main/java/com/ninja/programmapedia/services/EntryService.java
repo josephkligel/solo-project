@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.ninja.programmapedia.models.Entry;
+import com.ninja.programmapedia.models.User;
 import com.ninja.programmapedia.repositories.EntryRepository;
 
 @Service
@@ -36,11 +37,20 @@ public class EntryService {
 			return null;
 		}
 	}
-	// May not be needed since all users have entries
-	public List<Entry> findByUser(Long userId){
-		return entryRepo.findByUserId(userId);
+	
+	// Find entries by user_id
+	
+	public List<Entry> findByUser(User user){
+		return entryRepo.findByUser(user);
 	}
 	
+	// Find entries by programming language
+	
+	public List<Entry> findByLanguage(String language){
+		return entryRepo.findByLanguage(language);
+	}
+	
+	// Delete entry by id
 	public void deleteEntry(Long entryId) {
 		entryRepo.deleteById(entryId);
 	}

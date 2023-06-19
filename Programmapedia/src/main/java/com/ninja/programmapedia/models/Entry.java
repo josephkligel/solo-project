@@ -51,7 +51,6 @@ public class Entry {
 	
 	@ManyToOne(optional=false, fetch=FetchType.LAZY)
 	@JoinColumn(name="user_id")
-	@NotEmpty(message="Every entry requires a user to create it!")
 	private User user;
 	
 	public Entry() {

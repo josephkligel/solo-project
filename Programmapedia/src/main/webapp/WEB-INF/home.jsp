@@ -25,6 +25,7 @@
 		<div class="mb-4">
 			<h1>Welcome ${user.userName }!</h1>
 			<div class="align-self-center">
+				<a href="/language/add">Add a Language</a>
 				<a href="/add">Add an Entry</a>
 				<a href="/logout">Logout</a>
 			</div>
