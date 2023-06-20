@@ -24,9 +24,9 @@
 		<div class="mb-4 d-flex justify-content-between">
 			<h1>Programmapedia</h1>
 			<div class="align-self-center">
-				<a href="javascript:history.back()">Go Back</a>
-				<a href="/home">Home</a>
-				<a href="/logout">Logout</a>
+				<a class="me-3" href="javascript:history.back()">Go Back</a>
+				<a class="me-3" href="/home">Home</a>
+				<a class="me-3" href="/logout">Logout</a>
 			</div>
 		</div>
 		

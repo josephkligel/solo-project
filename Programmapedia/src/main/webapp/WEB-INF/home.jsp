@@ -25,8 +25,8 @@
 		<div class="mb-4 d-flex justify-content-between">
 			<h1>Welcome, ${user.userName }!</h1>
 			<div class="align-self-center">
-				<a href="/language/add">Add a Language</a>
-				<a href="/add">Add an Entry</a>
+				<a class="me-3" href="/language/add">Add a Language</a>
+				<a class="me-3" href="/add">Add an Entry</a>
 				<a href="/logout">Logout</a>
 			</div>
 			

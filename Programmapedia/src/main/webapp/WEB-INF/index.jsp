@@ -22,42 +22,42 @@
 
 	<div class="container pt-3">
 	
-		<div>
+		<div class="mb-4">
 			<h1>Welcome!</h1>
 			<p>Join our growing community.</p>
 		</div>
 		
 		<div class="row">
 		
-			<h3>Register</h3>
-		
 			<form:form class="col me-3" action="/register" method="post" modelAttribute="newUser">
+			
+				<h3>Register</h3>
 			
 				<div class="form-group row mb-3">
 					<form:label class="col-sm-4 col-form-label" path="userName">User Name:</form:label>					
-					<form:input class="col-sm-8" type="text" path="userName" />
+					<form:input class="col-sm-4" type="text" path="userName" />
 					<form:errors class="text-danger" path="userName"></form:errors>
 				</div>
 				
 				<div class="form-group mb-3 row">
 					<form:label class="col-sm-4 col-form-label" path="email">Email:</form:label>					
-					<form:input class="col-sm-8" type="text" path="email" />
+					<form:input class="col-sm-4" type="text" path="email" />
 					<form:errors class="text-danger" path="email"></form:errors>
 				</div>
 				
 				<div class="form-group mb-3 row">
 					<form:label class="col-sm-4 col-form-label" path="password">Password:</form:label>
-					<form:input class="col-sm-8" type="password" path="password" />
+					<form:input class="col-sm-4" type="password" path="password" />
 					<form:errors class="text-danger" path="password"></form:errors>
 				</div>
 				
 				<div class="form-group mb-3 row">
 					<form:label class="col-sm-4 col-form-label" path="confirm">Confirm PW:</form:label>
-					<form:input class="col-sm-8" type="password" path="confirm"></form:input>
+					<form:input class="col-sm-4" type="password" path="confirm"></form:input>
 					<form:errors class="text-danger" path="confirm"></form:errors>
 				</div>
 				
-				<div class="text-end">
+				<div class="text-center mt-4">
 					<input class="btn btn-primary" type="submit" value="Register" />
 				</div>
 			
@@ -71,17 +71,17 @@
 			
 				<div class="form-group mb-3 row">
 					<form:label class="col-sm-4 col-form-label" path="email">Email:</form:label>					
-					<form:input class="col-sm-8" type="text" path="email" />
+					<form:input class="col-sm-4" type="text" path="email" />
 					<form:errors class="text-danger" path="email"></form:errors>
 				</div>
 				
 				<div class="form-group mb-3 row">
 					<form:label class="col-sm-4 col-form-label" path="password">Password:</form:label>
-					<form:input class="col-sm-8" type="password" path="password" />
+					<form:input class="col-sm-4" type="password" path="password" />
 					<form:errors class="text-danger" path="password"></form:errors>
 				</div>
 				
-				<div class="text-end">
+				<div class="text-center mt-4">
 					<input class="btn btn-success" type="submit" value="Login" />
 				</div>
 			

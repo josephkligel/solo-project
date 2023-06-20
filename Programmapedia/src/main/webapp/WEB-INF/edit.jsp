@@ -24,8 +24,8 @@
 		<div class="mb-4 d-flex justify-content-between">
 			<h1>Programmapedia</h1>
 			<div class="align-self-center">
-				<a href="javascript:history.back()">Go Back</a>
-				<a href="/home">Home</a>
+				<a class="me-3" href="javascript:history.back()">Go Back</a>
+				<a class="me-3" href="/home">Home</a>
 				<a href="/logout">Logout</a>
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 				
 				<div class="form-group row mb-3">
 					<form:label class="col-sm-4 col-form-label" path="examples">Example(s):</form:label>					
-					<form:textarea class="col-sm-8" type="text" path="examples"></form:textarea>
+					<form:textarea class="col-sm-8" rows="4" type="text" path="examples"></form:textarea>
 					<form:errors class="text-danger" path="examples" />
 				</div>
 				
